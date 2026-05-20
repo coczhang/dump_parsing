@@ -6,7 +6,6 @@
 # Runtime/output artifacts
 /bin/
 /_package_tmp/
-/gitmeta/
 /reports/
 /exports/
 /crash_dumps/
