@@ -9,6 +9,7 @@
 /reports/
 /exports/
 /crash_dumps/
+/dump_parsing-v*.zip
 *.dmp
 *.dump
 *.pdb
