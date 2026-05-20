@@ -19,6 +19,7 @@ qt_add_executable(dump_parsing
     WIN32 MACOSX_BUNDLE
     app_icon.rc
     app_resources.qrc
+    resource.h
     analyzer/analyzer_backend.h
     analyzer/crash_analyzer.cpp
     analyzer/crash_analyzer.h
@@ -92,6 +93,7 @@ if(WIN32)
     target_link_libraries(dump_parsing
         PRIVATE
             dbghelp
+            shell32
     )
 
     add_custom_command(TARGET dump_parsing POST_BUILD
