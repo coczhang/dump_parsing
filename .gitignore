@@ -1,0 +1,28 @@
+# Build and IDE artifacts
+/build/
+/.qtcreator/
+/.vscode/
+
+# Runtime/output artifacts
+/bin/
+/_package_tmp/
+/gitmeta/
+/reports/
+/exports/
+/crash_dumps/
+*.dmp
+*.dump
+*.pdb
+*.dbg
+
+# CMake intermediate files
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+
+# Temporary files
+*.log
+*.tmp
+*.user
+*.autosave

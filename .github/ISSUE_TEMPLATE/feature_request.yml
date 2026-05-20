@@ -1,0 +1,91 @@
+name: 功能请求（Feature Request）
+description: 提交新功能建议、体验改进或能力增强需求
+title: "[Feature] "
+labels:
+  - enhancement
+  - feature-request
+body:
+  - type: markdown
+    attributes:
+      value: |
+        欢迎提出功能建议。  
+        请尽量说明“业务场景 + 预期收益 + 可接受方案”，便于快速评估。
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 你要解决的问题是什么？
+      description: 先描述痛点，而不是直接描述方案
+      placeholder: |
+        例如：当前只能单文件分析，批量分析多个 dump 效率很低。
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 你希望的功能方案
+      description: 描述你期待的行为/交互/输出结果
+      placeholder: |
+        例如：支持多选 dump 文件，一次分析并生成汇总报告。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: 预期收益
+      options:
+        - 高（显著提升效率/质量）
+        - 中（有明显帮助）
+        - 低（锦上添花）
+    validations:
+      required: true
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: 紧急程度
+      options:
+        - 高（近期必须）
+        - 中（建议近期）
+        - 低（可排后）
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: 可能涉及范围（可多选）
+      options:
+        - label: UI/交互
+        - label: dump 解析流程
+        - label: pdb/dbg 符号解析
+        - label: 报告展示
+        - label: 导出能力（md/pdf/txt）
+        - label: 构建与发布
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 你尝试过的替代方案
+      description: 当前是否有临时绕过方式
+      placeholder: |
+        例如：先用脚本解析，再手工整理到报告中。
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收标准（建议）
+      description: 什么结果算“这个需求做完了”
+      placeholder: |
+        例如：
+        1. 可批量选择多个 dump
+        2. 每个 dump 生成独立摘要
+        3. 生成总览汇总页
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充信息
+      description: 截图、草图、参考工具或其他说明

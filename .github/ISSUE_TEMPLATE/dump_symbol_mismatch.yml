@@ -1,0 +1,113 @@
+name: 崩溃解析/符号匹配问题
+description: 用于反馈 dump + pdb/dbg 解析失败、函数/行号不准确、源码定位异常等问题
+title: "[Crash] "
+labels:
+  - bug
+  - crash-analysis
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请尽量提供完整信息，便于快速复现与定位。  
+        如涉及敏感内容，请先做脱敏处理。
+
+  - type: dropdown
+    id: symbol_type
+    attributes:
+      label: 符号文件类型
+      options:
+        - PDB (MSVC)
+        - DBG (MinGW)
+        - 不确定
+    validations:
+      required: true
+
+  - type: input
+    id: app_version
+    attributes:
+      label: 工具版本/提交号
+      description: 例如 v1.0.0 或 Git commit hash
+      placeholder: v1.0.0
+    validations:
+      required: true
+
+  - type: input
+    id: target_module
+    attributes:
+      label: 目标模块名
+      description: 例如 Screen_Recording.exe
+      placeholder: xxx.exe
+    validations:
+      required: true
+
+  - type: dropdown
+    id: build_toolchain
+    attributes:
+      label: 目标程序编译链
+      options:
+        - MSVC
+        - MinGW
+        - 其他/不确定
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os_version
+    attributes:
+      label: 操作系统
+      options:
+        - Windows 11
+        - Windows 10
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue_desc
+    attributes:
+      label: 问题现象
+      description: 请描述“实际结果”和“期望结果”
+      placeholder: |
+        实际：显示未解析到崩溃函数，源码位置为空
+        期望：能定位到函数 + 行号 + 源码片段
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro_steps
+    attributes:
+      label: 复现步骤
+      description: 按顺序列出可复现步骤
+      placeholder: |
+        1. 打开工具
+        2. 选择 xxx.dmp + xxx.pdb
+        3. 点击开始分析
+        4. 观察报告...
+    validations:
+      required: true
+
+  - type: textarea
+    id: key_logs
+    attributes:
+      label: 关键日志/报错
+      description: 粘贴报告中关键报错（如 “Unable to get error code text ...”）
+      render: text
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: attachments
+    attributes:
+      label: 附件检查（建议）
+      description: 可在 issue 下方拖拽上传（脱敏后）
+      options:
+        - label: 已附上 WinDbg 日志（`*.windbg.txt`）
+        - label: 已附上 解析日志（`*.resolved.txt`）
+        - label: 已附上 报告截图
+        - label: 已附上 dump 与符号文件版本对应关系说明
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充信息
+      description: 其他可能有帮助的信息（路径结构、是否跨机器、是否增量构建等）
